@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Sserpske/frontend-project-lvl1#readme",
   "bin": {
     "brain-games": "src/bin/brain-games.js",
-    "brain-even": "src/bin/brain-even.js"
+    "brain-even": "src/bin/brain-even.js",
+    "brain-calc": "src/bin/brain-calc.js"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"

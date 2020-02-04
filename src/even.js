@@ -1,16 +1,5 @@
 import readlineSync from 'readline-sync';
-
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const getArrayOfRandomInt = (lengthOfArray) => {
-  const arr = [];
-
-  for (let i = 0; i < lengthOfArray; i += 1) {
-    arr.push(getRandomInt(100));
-  }
-
-  return arr;
-};
+import * as methods from './index.js';
 
 const isOdd = (number) => number % 2;
 
@@ -23,7 +12,7 @@ const answerHandler = (answer, number) => {
 };
 
 const evenGame = (username, durationOfGame) => {
-  const arrayOfRandomInt = getArrayOfRandomInt(durationOfGame);
+  const arrayOfRandomInt = methods.getArrayOfRandomInt(durationOfGame);
   let continueGame = true;
   let i = 0;
 

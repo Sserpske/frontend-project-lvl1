@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import askForName from '../index.js';
+import { askForName } from '../index.js';
 
 askForName();
