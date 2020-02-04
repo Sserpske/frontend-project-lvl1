@@ -42,7 +42,7 @@ const evenGame = (username, durationOfGame) => {
       }
     } else {
       continueGame = false;
-      const wrongAnswer = answer === 'yes' ? 'Yes' : 'No';
+      const wrongAnswer = answer.toLowerCase() === 'yes' ? 'No' : 'Yes';
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${wrongAnswer}'. \nLet's try again, ${username}!`);
     }
   } while (continueGame);
