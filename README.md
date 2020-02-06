@@ -8,3 +8,6 @@
 
 Пример установки и процесса игры в Brain-calc
 [![asciicast](https://asciinema.org/a/XIZgVF0rHiNNSKTP4P4fbSVy7.svg)](https://asciinema.org/a/XIZgVF0rHiNNSKTP4P4fbSVy7)
+
+Пример установки и процесса игры в Brain-gcd
+[![asciicast](https://asciinema.org/a/2SadUzitah5c8NrwSAWvOrWqX.svg)](https://asciinema.org/a/2SadUzitah5c8NrwSAWvOrWqX)

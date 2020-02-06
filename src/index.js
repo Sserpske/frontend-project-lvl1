@@ -9,14 +9,14 @@ export const askForName = () => {
 };
 
 export const getRandomInt = (maximumNumber) => Math.floor(
-  Math.random() * Math.floor(maximumNumber),
+  Math.random() * maximumNumber,
 );
 
 export const getArrayOfRandomInt = (lengthOfArray) => {
   const arr = [];
 
   for (let i = 0; i < lengthOfArray; i += 1) {
-    arr.push(getRandomInt(100));
+    arr.push(getRandomInt(30));
   }
 
   return arr;
