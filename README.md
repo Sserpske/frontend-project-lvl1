@@ -11,3 +11,6 @@
 
 Пример установки и процесса игры в Brain-gcd
 [![asciicast](https://asciinema.org/a/2SadUzitah5c8NrwSAWvOrWqX.svg)](https://asciinema.org/a/2SadUzitah5c8NrwSAWvOrWqX)
+
+Пример уставновки и процесса игры в Brain-progression
+[![asciicast](https://asciinema.org/a/r2xFTfmNdbDiBGyOsknpizH3n.svg)](https://asciinema.org/a/r2xFTfmNdbDiBGyOsknpizH3n)

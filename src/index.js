@@ -8,9 +8,15 @@ export const askForName = () => {
   return username;
 };
 
-export const getRandomInt = (maximumNumber) => Math.floor(
-  Math.random() * maximumNumber,
-);
+export const getRandomInt = (maximumNumber) => {
+  const randomInt = Math.floor(Math.random() * maximumNumber);
+
+  if (randomInt === 0) {
+    return getRandomInt(maximumNumber);
+  }
+
+  return randomInt;
+};
 
 export const getArrayOfRandomInt = (lengthOfArray) => {
   const arr = [];
