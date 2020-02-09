@@ -4,7 +4,9 @@ import * as methods from './index.js';
 const isPrime = (number) => {
   if (number < 2) {
     return true;
-  } else if (number === 2) {
+  }
+
+  if (number === 2) {
     return false;
   }
 
@@ -15,7 +17,7 @@ const isPrime = (number) => {
     if (number % i === 0) {
       return false;
     }
-    i +=1;
+    i += 1;
   }
 
   return true;
