@@ -4,6 +4,8 @@ import * as methods from './index.js';
 const question = (progression) => readlineSync
   .question(`Question: ${progression} \nYour answer: `);
 
+const answerHandler = (answer, correctResult) => Number(answer) === correctResult;
+
 const getProgressionArr = (quantityOfNumbers) => {
   const firstValue = methods.getRandomInt(10);
   const step = methods.getRandomInt(10);
@@ -33,20 +35,30 @@ const getProgressionArrWoValue = (quantityOfNumbers) => {
   };
 };
 
-const progressionGame = (userName, quantityOfNumbers) => {
-  const gameData = getProgressionArrWoValue(quantityOfNumbers);
-  // Линтер требует декстракчеринг, но почему-то
-  // progressionStr в таком случае undefined
-  // const { progressionStr, correctAnswer } = gameData;
-  const progressionStr = gameData.progressionStrWoValue;
-  const correctAnswer = gameData.correctAnswer;
-  const answer = question(progressionStr);
+const progressionGame = (userName, quantityOfNumbers, durationOfGame) => {
+  let continueGame = true;
+  let i = 0;
 
-  if (correctAnswer === Number(answer)) {
-    console.log(`Correct \nCongratulations, ${userName}!`);
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);
-  }
+  do {
+    const gameData = getProgressionArrWoValue(quantityOfNumbers);
+    const progressionStr = gameData.progressionStrWoValue;
+    const correctResult = gameData.correctAnswer;
+    const answer = question(progressionStr);
+    const isAnswerCorrect = answerHandler(answer, correctResult);
+
+    if (isAnswerCorrect) {
+      i += 1;
+      console.log('Correct');
+
+      if (i === durationOfGame) {
+        continueGame = false;
+        console.log(`Congratulations, ${userName}!`);
+      }
+    } else {
+      continueGame = false;
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
+    }
+  } while (continueGame);
 };
 
 export default progressionGame;
