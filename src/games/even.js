@@ -11,7 +11,7 @@ const answerHandler = (answer, number) => {
   return answer === expectAnswer;
 };
 
-const evenGame = (username, durationOfGame) => {
+const evenGame = (userName, durationOfGame) => {
   const arrayOfRandomInt = methods.getArrayOfRandomInt(durationOfGame);
   let continueGame = true;
   let i = 0;
@@ -27,12 +27,12 @@ const evenGame = (username, durationOfGame) => {
 
       if (i === durationOfGame) {
         continueGame = false;
-        console.log(`Congratulations, ${username}!`);
+        console.log(`Congratulations, ${userName}!`);
       }
     } else {
       continueGame = false;
       const wrongAnswer = answer.toLowerCase() === 'yes' ? 'No' : 'Yes';
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${wrongAnswer}'. \nLet's try again, ${username}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${wrongAnswer}'. \nLet's try again, ${userName}!`);
     }
   } while (continueGame);
 };

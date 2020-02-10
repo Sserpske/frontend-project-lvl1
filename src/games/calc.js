@@ -22,7 +22,7 @@ const calculate = (number1, number2, operation) => {
   }
 };
 
-const calcGame = (username, durationOfGame) => {
+const calcGame = (userName, durationOfGame) => {
   const arrayOfRandomInt1 = methods.getArrayOfRandomInt(durationOfGame);
   const arrayOfRandomInt2 = methods.getArrayOfRandomInt(durationOfGame);
   const arrayOfOperations = ['+', '-', '*'];
@@ -43,11 +43,11 @@ const calcGame = (username, durationOfGame) => {
 
       if (i === durationOfGame) {
         continueGame = false;
-        console.log(`Congratulations, ${username}!`);
+        console.log(`Congratulations, ${userName}!`);
       }
     } else {
       continueGame = false;
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${username}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
     }
   } while (continueGame);
 };
