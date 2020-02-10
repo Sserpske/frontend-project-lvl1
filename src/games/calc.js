@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from './index.js';
+import * as methods from '../index.js';
 
 const question = (number1, number2, operation) => readlineSync
   .question(`Question: ${number1} ${operation} ${number2} \nYour answer: `);

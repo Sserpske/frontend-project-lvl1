@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from './index.js';
+import * as methods from '../index.js';
 
 const isOdd = (number) => number % 2;
 
