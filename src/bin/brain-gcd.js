@@ -5,5 +5,4 @@ import gcdGame from '../games/gcd.js';
 const userName = askForName();
 const durationOfGame = 3;
 
-console.log('Find the greatest common divisor of given numbers.');
 gcdGame(userName, durationOfGame);

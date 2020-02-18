@@ -6,5 +6,4 @@ const userName = askForName();
 const quantityOfNumbers = 10;
 const durationOfGame = 3;
 
-console.log('What number is missing in the progression?');
 progressionGame(userName, durationOfGame, quantityOfNumbers);

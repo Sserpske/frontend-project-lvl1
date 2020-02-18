@@ -36,6 +36,7 @@ const getProgressionArrWoValue = (quantityOfNumbers) => {
 };
 
 const progressionGame = (userName, durationOfGame, quantityOfNumbers) => {
+  console.log('What number is missing in the progression?');
   let continueGame = true;
   let i = 0;
 

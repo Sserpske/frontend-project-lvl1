@@ -12,6 +12,7 @@ const answerHandler = (answer, number) => {
 };
 
 const evenGame = (userName, durationOfGame) => {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const randomNumbers = helper.getRandomNumbers(durationOfGame);
   let continueGame = true;
   let i = 0;

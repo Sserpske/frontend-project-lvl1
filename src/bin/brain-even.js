@@ -5,5 +5,4 @@ import evenGame from '../games/even.js';
 const userName = askForName();
 const durationOfGame = 3;
 
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
 evenGame(userName, durationOfGame);

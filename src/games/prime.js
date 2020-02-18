@@ -32,6 +32,7 @@ const answerHandler = (answer, number) => {
 const question = (number) => readlineSync.question(`Question: ${number} \nYour answer: `);
 
 const primeGame = (userName, durationOfGame) => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let continueGame = true;
   let i = 0;
 

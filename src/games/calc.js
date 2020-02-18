@@ -23,6 +23,7 @@ const calculate = (number1, number2, operation) => {
 };
 
 const calcGame = (userName, durationOfGame) => {
+  console.log('What is the result of the expression?');
   const randomNumbers1 = helper.getRandomNumbers(durationOfGame);
   const randomNumbers2 = helper.getRandomNumbers(durationOfGame);
   const mathOperators = ['+', '-', '*'];

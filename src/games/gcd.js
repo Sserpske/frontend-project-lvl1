@@ -26,6 +26,7 @@ const getGcd = (number1, number2) => {
 };
 
 const gcdGame = (userName, durationOfGame) => {
+  console.log('Find the greatest common divisor of given numbers.');
   const arrayOfRandomInt1 = helper.getRandomNumbers(durationOfGame);
   const arrayOfRandomInt2 = helper.getRandomNumbers(durationOfGame);
   let continueGame = true;
