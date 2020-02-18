@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from '../index.js';
+import * as helper from '../index.js';
 
 const question = (number1, number2) => readlineSync
   .question(`Question: ${number1} ${number2} \nYour answer: `);
@@ -26,8 +26,8 @@ const getGcd = (number1, number2) => {
 };
 
 const gcdGame = (userName, durationOfGame) => {
-  const arrayOfRandomInt1 = methods.getArrayOfRandomInt(durationOfGame);
-  const arrayOfRandomInt2 = methods.getArrayOfRandomInt(durationOfGame);
+  const arrayOfRandomInt1 = helper.getRandomNumbers(durationOfGame);
+  const arrayOfRandomInt2 = helper.getRandomNumbers(durationOfGame);
   let continueGame = true;
   let i = 0;
 

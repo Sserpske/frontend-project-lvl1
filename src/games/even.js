@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from '../index.js';
+import * as helper from '../index.js';
 
 const isOdd = (number) => number % 2;
 
@@ -12,12 +12,12 @@ const answerHandler = (answer, number) => {
 };
 
 const evenGame = (userName, durationOfGame) => {
-  const arrayOfRandomInt = methods.getArrayOfRandomInt(durationOfGame);
+  const randomNumbers = helper.getRandomNumbers(durationOfGame);
   let continueGame = true;
   let i = 0;
 
   do {
-    const currentInt = arrayOfRandomInt[i];
+    const currentInt = randomNumbers[i];
     const answer = question(currentInt);
     const isAnswerCorrect = answerHandler(answer, currentInt);
 

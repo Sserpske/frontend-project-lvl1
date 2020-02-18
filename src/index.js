@@ -18,7 +18,7 @@ export const getRandomInt = (maximumNumber) => {
   return randomInt;
 };
 
-export const getArrayOfRandomInt = (lengthOfArray) => {
+export const getRandomNumbers = (lengthOfArray) => {
   const arr = [];
 
   for (let i = 0; i < lengthOfArray; i += 1) {

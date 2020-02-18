@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from '../index.js';
+import * as helper from '../index.js';
 
 const question = (progression) => readlineSync
   .question(`Question: ${progression} \nYour answer: `);
@@ -7,8 +7,8 @@ const question = (progression) => readlineSync
 const answerHandler = (answer, correctResult) => Number(answer) === correctResult;
 
 const getProgressionArr = (quantityOfNumbers) => {
-  const firstValue = methods.getRandomInt(10);
-  const step = methods.getRandomInt(10);
+  const firstValue = helper.getRandomInt(10);
+  const step = helper.getRandomInt(10);
   const progressionArray = [];
   let currentNumber = firstValue;
 
@@ -22,7 +22,7 @@ const getProgressionArr = (quantityOfNumbers) => {
 
 const getProgressionArrWoValue = (quantityOfNumbers) => {
   const progressionArr = getProgressionArr(quantityOfNumbers);
-  const randomInt = methods.getRandomInt(quantityOfNumbers - 1);
+  const randomInt = helper.getRandomInt(quantityOfNumbers - 1);
   const correctAnswer = progressionArr[randomInt];
 
   progressionArr[randomInt] = '..';
@@ -35,7 +35,7 @@ const getProgressionArrWoValue = (quantityOfNumbers) => {
   };
 };
 
-const progressionGame = (userName, quantityOfNumbers, durationOfGame) => {
+const progressionGame = (userName, durationOfGame, quantityOfNumbers) => {
   let continueGame = true;
   let i = 0;
 

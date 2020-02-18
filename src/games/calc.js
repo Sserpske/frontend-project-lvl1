@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from '../index.js';
+import * as helper from '../index.js';
 
 const question = (number1, number2, operation) => readlineSync
   .question(`Question: ${number1} ${operation} ${number2} \nYour answer: `);
@@ -23,16 +23,16 @@ const calculate = (number1, number2, operation) => {
 };
 
 const calcGame = (userName, durationOfGame) => {
-  const arrayOfRandomInt1 = methods.getArrayOfRandomInt(durationOfGame);
-  const arrayOfRandomInt2 = methods.getArrayOfRandomInt(durationOfGame);
-  const arrayOfOperations = ['+', '-', '*'];
+  const randomNumbers1 = helper.getRandomNumbers(durationOfGame);
+  const randomNumbers2 = helper.getRandomNumbers(durationOfGame);
+  const mathOperators = ['+', '-', '*'];
   let continueGame = true;
   let i = 0;
 
   do {
-    const currentInt1 = arrayOfRandomInt1[i];
-    const currentInt2 = arrayOfRandomInt2[i];
-    const currentOperation = arrayOfOperations[methods.getRandomInt(3)];
+    const currentInt1 = randomNumbers1[i];
+    const currentInt2 = randomNumbers2[i];
+    const currentOperation = mathOperators[helper.getRandomInt(3)];
     const answer = question(currentInt1, currentInt2, currentOperation);
     const correctResult = calculate(currentInt1, currentInt2, currentOperation);
     const isAnswerCorrect = answerHandler(answer, correctResult);

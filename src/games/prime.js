@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import * as methods from '../index.js';
+import * as helper from '../index.js';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -36,7 +36,7 @@ const primeGame = (userName, durationOfGame) => {
   let i = 0;
 
   do {
-    const randomInt = methods.getRandomInt(100);
+    const randomInt = helper.getRandomInt(100);
     const answer = question(randomInt);
     const isAnswerCorrect = answerHandler(answer, randomInt);
 
