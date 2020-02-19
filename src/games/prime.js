@@ -26,7 +26,7 @@ const isPrime = (number) => {
   return true;
 };
 
-const answerHandler = (number) => isPrime(number) ? 'yes' : 'no';
+const answerHandler = (number) => (isPrime(number) ? 'yes' : 'no');
 
 const primeGame = () => {
   const randomInt = helper.getRandomInt(minimalNumber, maximumNumber);
@@ -36,7 +36,7 @@ const primeGame = () => {
   return {
     question,
     correctResult,
-  }
+  };
 };
 
 export default () => helper.gameEngine(primeGame, description);
