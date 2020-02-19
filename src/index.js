@@ -19,7 +19,11 @@ const answerComparator = (answer, correctResult) => answer === correctResult;
 const askQuestion = (question) => readlineSync
   .question(`Question: ${question} \nYour answer: `);
 
-export const gameEngine = (game, description, getQuestion, getCorrectResult) => {
+const getQuestion = (roundData) => roundData.question;
+
+const getCorrectResult = (roundData) => roundData.correctResult;
+
+export const gameEngine = (game, description) => {
   const userName = askForName();
   let continueGame = true;
   let i = 0;

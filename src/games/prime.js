@@ -39,7 +39,4 @@ const primeGame = () => {
   }
 };
 
-const getQuestion = (roundData) => roundData.question;
-const getCorrectResult = (roundData) => roundData.correctResult;
-
-export default () => helper.gameEngine(primeGame, description, getQuestion, getCorrectResult);
+export default () => helper.gameEngine(primeGame, description);

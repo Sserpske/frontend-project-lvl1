@@ -33,7 +33,4 @@ const gcdGame = () => {
   };
 };
 
-const getQuestion = (roundData) => roundData.question;
-const getCorrectResult = (roundData) => roundData.correctResult;
-
-export default () => helper.gameEngine(gcdGame, description, getQuestion, getCorrectResult);
+export default () => helper.gameEngine(gcdGame, description);
