@@ -14,16 +14,6 @@ export const getRandomInt = (minimalNumber, maximumNumber) => Math.floor(
   Math.random() * (maximumNumber - minimalNumber + 1) + minimalNumber,
 );
 
-export const getRandomNumbers = (lengthOfArray) => {
-  const arr = [];
-
-  for (let i = 0; i < lengthOfArray; i += 1) {
-    arr.push(getRandomInt(30));
-  }
-
-  return arr;
-};
-
 const answerComparator = (answer, correctResult) => answer === correctResult;
 
 const askQuestion = (question) => readlineSync
