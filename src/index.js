@@ -24,7 +24,7 @@ export const getRandomNumbers = (lengthOfArray) => {
   return arr;
 };
 
-const answerHandler = (answer, correctResult) => answer === correctResult;
+const answerComparator = (answer, correctResult) => answer === correctResult;
 
 const askQuestion = (question) => readlineSync
   .question(`Question: ${question} \nYour answer: `);
@@ -40,7 +40,7 @@ export const gameEngine = (game, description, getQuestion, getCorrectResult) => 
     const roundData = game();
     const answer = askQuestion(getQuestion(roundData));
     const correctResult = getCorrectResult(roundData);
-    const isAnswerCorrect = answerHandler(answer, correctResult);
+    const isAnswerCorrect = answerComparator(answer, correctResult);
 
     if (isAnswerCorrect) {
       i += 1;
