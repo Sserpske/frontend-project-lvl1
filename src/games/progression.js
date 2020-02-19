@@ -1,33 +1,31 @@
-import readlineSync from 'readline-sync';
 import * as helper from '../index.js';
 
-const question = (progression) => readlineSync
-  .question(`Question: ${progression} \nYour answer: `);
+const description = 'What number is missing in the progression?';
+const minimalNumber = 1;
+const maximumNumber = 10;
 
-const answerHandler = (answer, correctResult) => Number(answer) === correctResult;
-
-const getProgressionArr = (quantityOfNumbers) => {
-  const firstValue = helper.getRandomInt(10);
-  const step = helper.getRandomInt(10);
-  const progressionArray = [];
+const getProgressionNumbers = (quantityOfNumbers) => {
+  const firstValue = helper.getRandomInt(minimalNumber, maximumNumber);
+  const step = helper.getRandomInt(minimalNumber, maximumNumber);
+  const progressionNumbers = [];
   let currentNumber = firstValue;
 
   for (let i = 0; i < quantityOfNumbers; i += 1) {
-    progressionArray.push(currentNumber);
+    progressionNumbers.push(currentNumber);
     currentNumber += step;
   }
 
-  return progressionArray;
+  return progressionNumbers;
 };
 
-const getProgressionArrWoValue = (quantityOfNumbers) => {
-  const progressionArr = getProgressionArr(quantityOfNumbers);
-  const randomInt = helper.getRandomInt(quantityOfNumbers - 1);
-  const correctAnswer = progressionArr[randomInt];
+const getProgressionNumbersWoValue = (quantityOfNumbers) => {
+  const progressionNumbers = getProgressionNumbers(quantityOfNumbers);
+  const randomInt = helper.getRandomInt(minimalNumber, maximumNumber - 1);
+  const correctAnswer = progressionNumbers[randomInt];
 
-  progressionArr[randomInt] = '..';
+  progressionNumbers[randomInt] = '..';
 
-  const progressionStrWoValue = progressionArr.join(' ');
+  const progressionStrWoValue = progressionNumbers.join(' ');
 
   return {
     progressionStrWoValue,
@@ -35,31 +33,16 @@ const getProgressionArrWoValue = (quantityOfNumbers) => {
   };
 };
 
-const progressionGame = (userName, durationOfGame, quantityOfNumbers) => {
-  console.log('What number is missing in the progression?');
-  let continueGame = true;
-  let i = 0;
+const progressionGame = () => {
+  const quantityOfNumbers = 10;
+  const gameData = getProgressionNumbersWoValue(quantityOfNumbers);
+  const question = gameData.progressionStrWoValue;
+  const correctResult = String(gameData.correctAnswer);
 
-  do {
-    const gameData = getProgressionArrWoValue(quantityOfNumbers);
-    const progressionStr = gameData.progressionStrWoValue;
-    const correctResult = gameData.correctAnswer;
-    const answer = question(progressionStr);
-    const isAnswerCorrect = answerHandler(answer, correctResult);
-
-    if (isAnswerCorrect) {
-      i += 1;
-      console.log('Correct');
-
-      if (i === durationOfGame) {
-        continueGame = false;
-        console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      continueGame = false;
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
-    }
-  } while (continueGame);
+  return {
+    question,
+    correctResult,
+  };
 };
 
-export default progressionGame;
+export default () => helper.gameEngine(progressionGame, description);

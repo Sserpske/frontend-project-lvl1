@@ -1,56 +1,47 @@
-import readlineSync from 'readline-sync';
 import * as helper from '../index.js';
 
-const question = (number1, number2, operation) => readlineSync
-  .question(`Question: ${number1} ${operation} ${number2} \nYour answer: `);
+const description = 'What is the result of the expression?';
+const minimalNumber = 1;
+const maximumNumber = 50;
 
-const answerHandler = (answer, correctResult) => Number(answer) === correctResult;
-
-const calculate = (number1, number2, operation) => {
-  switch (operation) {
-    case '+':
-      return number1 + number2;
-
-    case '-':
-      return number1 - number2;
-
-    case '*':
-      return number1 * number2;
-
-    default:
-      return 0;
+const getRandomOperation = () => {
+  switch (helper.getRandomInt(0, 2)) {
+    case 0: {
+      return {
+        symbolOfOperation: '+',
+        calculation: (a, b) => a + b,
+      };
+    }
+    case 1: {
+      return {
+        symbolOfOperation: '-',
+        calculation: (a, b) => a - b,
+      };
+    }
+    case 2: {
+      return {
+        symbolOfOperation: '*',
+        calculation: (a, b) => a * b,
+      };
+    }
+    default: {
+      return null;
+    }
   }
 };
 
-const calcGame = (userName, durationOfGame) => {
-  console.log('What is the result of the expression?');
-  const randomNumbers1 = helper.getRandomNumbers(durationOfGame);
-  const randomNumbers2 = helper.getRandomNumbers(durationOfGame);
-  const mathOperators = ['+', '-', '*'];
-  let continueGame = true;
-  let i = 0;
+const calcGame = () => {
+  const randomInt1 = helper.getRandomInt(minimalNumber, maximumNumber);
+  const randomInt2 = helper.getRandomInt(minimalNumber, maximumNumber);
+  const operationData = getRandomOperation();
+  const operator = operationData.symbolOfOperation;
+  const question = `${randomInt1} ${operator} ${randomInt2}`;
+  const correctResult = String(operationData.calculation(randomInt1, randomInt2));
 
-  do {
-    const currentInt1 = randomNumbers1[i];
-    const currentInt2 = randomNumbers2[i];
-    const currentOperation = mathOperators[helper.getRandomInt(3)];
-    const answer = question(currentInt1, currentInt2, currentOperation);
-    const correctResult = calculate(currentInt1, currentInt2, currentOperation);
-    const isAnswerCorrect = answerHandler(answer, correctResult);
-
-    if (isAnswerCorrect) {
-      i += 1;
-      console.log('Correct');
-
-      if (i === durationOfGame) {
-        continueGame = false;
-        console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      continueGame = false;
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
-    }
-  } while (continueGame);
+  return {
+    question,
+    correctResult,
+  };
 };
 
-export default calcGame;
+export default () => helper.gameEngine(calcGame, description);

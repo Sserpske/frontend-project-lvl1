@@ -1,29 +1,52 @@
 import readlineSync from 'readline-sync';
 
+const durationOfGame = 3;
+
 export const askForName = () => {
   console.log('Welcome to the Brain Games!');
-  const username = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${username}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
 
-  return username;
+  return userName;
 };
 
-export const getRandomInt = (maximumNumber) => {
-  const randomInt = Math.floor(Math.random() * maximumNumber);
+export const getRandomInt = (minimalNumber, maximumNumber) => Math.floor(
+  Math.random() * (maximumNumber - minimalNumber + 1) + minimalNumber,
+);
 
-  if (randomInt === 0) {
-    return getRandomInt(maximumNumber);
-  }
+const answerComparator = (answer, correctResult) => answer === correctResult;
 
-  return randomInt;
-};
+const askQuestion = (question) => readlineSync
+  .question(`Question: ${question} \nYour answer: `);
 
-export const getRandomNumbers = (lengthOfArray) => {
-  const arr = [];
+const getQuestion = (roundData) => roundData.question;
 
-  for (let i = 0; i < lengthOfArray; i += 1) {
-    arr.push(getRandomInt(30));
-  }
+const getCorrectResult = (roundData) => roundData.correctResult;
 
-  return arr;
+export const gameEngine = (game, description) => {
+  const userName = askForName();
+  let continueGame = true;
+  let i = 0;
+
+  console.log(description);
+
+  do {
+    const roundData = game();
+    const answer = askQuestion(getQuestion(roundData));
+    const correctResult = getCorrectResult(roundData);
+    const isAnswerCorrect = answerComparator(answer, correctResult);
+
+    if (isAnswerCorrect) {
+      i += 1;
+      console.log('Correct');
+
+      if (i === durationOfGame) {
+        continueGame = false;
+        console.log(`Congratulations, ${userName}!`);
+      }
+    } else {
+      continueGame = false;
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
+    }
+  } while (continueGame);
 };

@@ -1,41 +1,21 @@
-import readlineSync from 'readline-sync';
 import * as helper from '../index.js';
 
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+const minimalNumber = 1;
+const maximumNumber = 100;
 const isOdd = (number) => number % 2;
 
-const question = (number) => readlineSync.question(`Question: ${number} \nYour answer: `);
+const answerHandler = (number) => (isOdd(number) ? 'no' : 'yes');
 
-const answerHandler = (answer, number) => {
-  const expectAnswer = !isOdd(number) ? 'yes' : 'no';
+const evenGame = () => {
+  const currentInt = helper.getRandomInt(minimalNumber, maximumNumber);
+  const question = currentInt;
+  const correctResult = answerHandler(currentInt);
 
-  return answer === expectAnswer;
+  return {
+    question,
+    correctResult,
+  };
 };
 
-const evenGame = (userName, durationOfGame) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  const randomNumbers = helper.getRandomNumbers(durationOfGame);
-  let continueGame = true;
-  let i = 0;
-
-  do {
-    const currentInt = randomNumbers[i];
-    const answer = question(currentInt);
-    const isAnswerCorrect = answerHandler(answer, currentInt);
-
-    if (isAnswerCorrect) {
-      i += 1;
-      console.log('Correct');
-
-      if (i === durationOfGame) {
-        continueGame = false;
-        console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      continueGame = false;
-      const wrongAnswer = answer.toLowerCase() === 'yes' ? 'No' : 'Yes';
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${wrongAnswer}'. \nLet's try again, ${userName}!`);
-    }
-  } while (continueGame);
-};
-
-export default evenGame;
+export default () => helper.gameEngine(evenGame, description);
