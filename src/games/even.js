@@ -9,15 +9,16 @@ const answerHandler = (number) => (isOdd(number) ? 'no' : 'yes');
 
 const evenGame = () => {
   const currentInt = helper.getRandomInt(minimalNumber, maximumNumber);
+  const question = currentInt;
   const correctResult = answerHandler(currentInt);
 
   return {
-    currentInt,
+    question,
     correctResult,
   };
 };
 
-const getQuestion = (roundData) => roundData.currentInt;
+const getQuestion = (roundData) => roundData.question;
 const getCorrectResult = (roundData) => roundData.correctResult;
 
 export default () => helper.gameEngine(evenGame, description, getQuestion, getCorrectResult);

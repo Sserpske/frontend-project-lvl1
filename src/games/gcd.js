@@ -1,10 +1,8 @@
-import readlineSync from 'readline-sync';
 import * as helper from '../index.js';
 
-const question = (number1, number2) => readlineSync
-  .question(`Question: ${number1} ${number2} \nYour answer: `);
-
-const answerHandler = (answer, correctResult) => Number(answer) === correctResult;
+const description = 'Find the greatest common divisor of given numbers.';
+const minimalNumber = 1;
+const maximumNumber = 50;
 
 const getGcd = (number1, number2) => {
   if (number1 === number2) {
@@ -20,38 +18,22 @@ const getGcd = (number1, number2) => {
     }
   }
 
-  // Линтер ругается, что функция ничего не возвращает
-  // в конце, пока не понял как решить иначе
-  return false;
+  return 1;
 };
 
-const gcdGame = (userName, durationOfGame) => {
-  console.log('Find the greatest common divisor of given numbers.');
-  const arrayOfRandomInt1 = helper.getRandomNumbers(durationOfGame);
-  const arrayOfRandomInt2 = helper.getRandomNumbers(durationOfGame);
-  let continueGame = true;
-  let i = 0;
+const gcdGame = () => {
+  const currentInt1 = helper.getRandomInt(minimalNumber, maximumNumber);
+  const currentInt2 = helper.getRandomInt(minimalNumber, maximumNumber);
+  const question = `${currentInt1} ${currentInt2}`;
+  const correctResult = String(getGcd(currentInt1, currentInt2));
 
-  do {
-    const currentInt1 = arrayOfRandomInt1[i];
-    const currentInt2 = arrayOfRandomInt2[i];
-    const answer = question(currentInt1, currentInt2);
-    const correctResult = getGcd(currentInt1, currentInt2);
-    const isAnswerCorrect = answerHandler(answer, correctResult);
-
-    if (isAnswerCorrect) {
-      i += 1;
-      console.log('Correct');
-
-      if (i === durationOfGame) {
-        continueGame = false;
-        console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      continueGame = false;
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
-    }
-  } while (continueGame);
+  return {
+    question,
+    correctResult,
+  };
 };
 
-export default gcdGame;
+const getQuestion = (roundData) => roundData.question;
+const getCorrectResult = (roundData) => roundData.correctResult;
+
+export default () => helper.gameEngine(gcdGame, description, getQuestion, getCorrectResult);
