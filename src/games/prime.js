@@ -1,4 +1,5 @@
-import * as helper from '../index.js';
+import gameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const minimalNumber = 1;
@@ -26,12 +27,11 @@ const isPrime = (number) => {
   return true;
 };
 
-const answerHandler = (number) => (isPrime(number) ? 'yes' : 'no');
+const prepareCorrectResult = (number) => (isPrime(number) ? 'yes' : 'no');
 
 const primeGame = () => {
-  const randomInt = helper.getRandomInt(minimalNumber, maximumNumber);
-  const question = randomInt;
-  const correctResult = answerHandler(randomInt);
+  const question = getRandomInt(minimalNumber, maximumNumber);
+  const correctResult = prepareCorrectResult(question);
 
   return {
     question,
@@ -39,4 +39,4 @@ const primeGame = () => {
   };
 };
 
-export default () => helper.gameEngine(primeGame, description);
+export default () => gameEngine(primeGame, description);
