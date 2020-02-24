@@ -1,6 +1,7 @@
 # Учебный проект Brain Games
 [![Maintainability](https://api.codeclimate.com/v1/badges/6df75cb3dd2dfe8cd701/maintainability)](https://codeclimate.com/github/Sserpske/frontend-project-lvl1/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6df75cb3dd2dfe8cd701/test_coverage)](https://codeclimate.com/github/Sserpske/frontend-project-lvl1/test_coverage)
+![Linter](https://github.com/Sserpske/frontend-project-lvl1/workflows/Linter/badge.svg)
 
 Пример установки и процесса игры в Brain-even
 [![asciicast](https://asciinema.org/a/Aso1hOUScG22TnS7ScQGZDv2I.svg)](https://asciinema.org/a/Aso1hOUScG22TnS7ScQGZDv2I)
