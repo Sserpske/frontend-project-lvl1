@@ -1,12 +1,12 @@
 import gameEngine from '../index.js';
-import * as utils from '../utils.js';
+import getRandomInt from '../utils.js';
 
 const description = 'What is the result of the expression?';
 const minimalNumber = 1;
 const maximumNumber = 50;
 
 const getRandomOperation = () => {
-  switch (utils.getRandomInt(0, 2)) {
+  switch (getRandomInt(0, 2)) {
     case 0: {
       return {
         symbolOfOperation: '+',
@@ -32,8 +32,8 @@ const getRandomOperation = () => {
 };
 
 const calcGame = () => {
-  const randomInt1 = utils.getRandomInt(minimalNumber, maximumNumber);
-  const randomInt2 = utils.getRandomInt(minimalNumber, maximumNumber);
+  const randomInt1 = getRandomInt(minimalNumber, maximumNumber);
+  const randomInt2 = getRandomInt(minimalNumber, maximumNumber);
   const operationData = getRandomOperation();
   const operator = operationData.symbolOfOperation;
   const question = `${randomInt1} ${operator} ${randomInt2}`;

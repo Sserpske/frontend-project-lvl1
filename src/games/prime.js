@@ -1,5 +1,5 @@
 import gameEngine from '../index.js';
-import * as utils from '../utils.js';
+import getRandomInt from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const minimalNumber = 1;
@@ -30,7 +30,7 @@ const isPrime = (number) => {
 const prepareCorrectResult = (number) => (isPrime(number) ? 'yes' : 'no');
 
 const primeGame = () => {
-  const question = utils.getRandomInt(minimalNumber, maximumNumber);
+  const question = getRandomInt(minimalNumber, maximumNumber);
   const correctResult = prepareCorrectResult(question);
 
   return {

@@ -1,5 +1,5 @@
 import gameEngine from '../index.js';
-import * as utils from '../utils.js';
+import getRandomInt from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 const minimalNumber = 1;
@@ -19,10 +19,10 @@ const getProgressionNumbers = (length, firstValue, step) => {
 };
 
 const getProgressionNumbersWoValue = (quantityOfNumbers) => {
-  const firstValue = utils.getRandomInt(minimalNumber, maximumNumber);
-  const step = utils.getRandomInt(minimalNumber, maximumNumber);
+  const firstValue = getRandomInt(minimalNumber, maximumNumber);
+  const step = getRandomInt(minimalNumber, maximumNumber);
   const progressionNumbers = getProgressionNumbers(quantityOfNumbers, firstValue, step);
-  const randomInt = utils.getRandomInt(minimalNumber, maximumNumber - 1);
+  const randomInt = getRandomInt(minimalNumber, maximumNumber - 1);
   const correctAnswer = progressionNumbers[randomInt];
 
   progressionNumbers[randomInt] = '..';
