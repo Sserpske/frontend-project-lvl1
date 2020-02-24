@@ -26,12 +26,11 @@ const isPrime = (number) => {
   return true;
 };
 
-const answerHandler = (number) => (isPrime(number) ? 'yes' : 'no');
+const prepareCorrectResult = (number) => (isPrime(number) ? 'yes' : 'no');
 
 const primeGame = () => {
-  const randomInt = helper.getRandomInt(minimalNumber, maximumNumber);
-  const question = randomInt;
-  const correctResult = answerHandler(randomInt);
+  const question = helper.getRandomInt(minimalNumber, maximumNumber);
+  const correctResult = prepareCorrectResult(question);
 
   return {
     question,
