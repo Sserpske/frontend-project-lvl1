@@ -2,14 +2,6 @@ import readlineSync from 'readline-sync';
 
 const durationOfGame = 3;
 
-export const askForName = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-
-  return userName;
-};
-
 export const getRandomInt = (minimalNumber, maximumNumber) => Math.floor(
   Math.random() * (maximumNumber - minimalNumber + 1) + minimalNumber,
 );
@@ -24,7 +16,9 @@ const getQuestion = (roundData) => roundData.question;
 const getCorrectResult = (roundData) => roundData.correctResult;
 
 export const gameEngine = (game, description) => {
-  const userName = askForName();
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   let continueGame = true;
   let i = 0;
 
