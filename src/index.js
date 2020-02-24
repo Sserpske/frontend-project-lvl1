@@ -2,10 +2,6 @@ import readlineSync from 'readline-sync';
 
 const durationOfGame = 3;
 
-export const getRandomInt = (minimalNumber, maximumNumber) => Math.floor(
-  Math.random() * (maximumNumber - minimalNumber + 1) + minimalNumber,
-);
-
 const answerComparator = (answer, correctResult) => answer === correctResult;
 
 const askQuestion = (question) => readlineSync
@@ -15,32 +11,30 @@ const getQuestion = (roundData) => roundData.question;
 
 const getCorrectResult = (roundData) => roundData.correctResult;
 
-export const gameEngine = (game, description) => {
+const gameEngine = (game, description) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  let continueGame = true;
-  let i = 0;
 
   console.log(description);
 
-  do {
+  for (let i = 1; i <= durationOfGame; i += 1) {
     const roundData = game();
     const answer = askQuestion(getQuestion(roundData));
     const correctResult = getCorrectResult(roundData);
     const isAnswerCorrect = answerComparator(answer, correctResult);
 
     if (isAnswerCorrect) {
-      i += 1;
       console.log('Correct');
 
       if (i === durationOfGame) {
-        continueGame = false;
         console.log(`Congratulations, ${userName}!`);
       }
     } else {
-      continueGame = false;
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctResult}'. \nLet's try again, ${userName}!`);
+      break;
     }
-  } while (continueGame);
+  }
 };
+
+export default gameEngine;
