@@ -6,20 +6,23 @@ const minimalNumber = 1;
 const maximumNumber = 50;
 
 const getRandomOperation = () => {
-  switch (getRandomInt(0, 2)) {
-    case 0: {
+  const operators = ['+', '-', '*'];
+  const currentOperator = operators[getRandomInt(0, operators.length - 1)];
+
+  switch (currentOperator) {
+    case '+': {
       return {
         symbolOfOperation: '+',
         calculation: (a, b) => a + b,
       };
     }
-    case 1: {
+    case '-': {
       return {
         symbolOfOperation: '-',
         calculation: (a, b) => a - b,
       };
     }
-    case 2: {
+    case '*': {
       return {
         symbolOfOperation: '*',
         calculation: (a, b) => a * b,
