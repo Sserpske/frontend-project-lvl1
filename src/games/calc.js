@@ -34,18 +34,18 @@ const getRandomOperation = () => {
   }
 };
 
-const calcGame = () => {
+const playRound = () => {
   const randomInt1 = getRandomInt(minimalNumber, maximumNumber);
   const randomInt2 = getRandomInt(minimalNumber, maximumNumber);
   const operationData = getRandomOperation();
   const operator = operationData.symbolOfOperation;
   const question = `${randomInt1} ${operator} ${randomInt2}`;
-  const correctResult = String(operationData.calculation(randomInt1, randomInt2));
+  const correctAnswer = String(operationData.calculation(randomInt1, randomInt2));
 
   return {
     question,
-    correctResult,
+    correctAnswer,
   };
 };
 
-export default () => gameEngine(calcGame, description);
+export default () => gameEngine(playRound, description);

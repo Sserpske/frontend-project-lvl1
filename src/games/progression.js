@@ -35,15 +35,15 @@ const getProgressionNumbersWoValue = (quantityOfNumbers) => {
   };
 };
 
-const progressionGame = () => {
+const playRound = () => {
   const gameData = getProgressionNumbersWoValue(progressionLength);
   const question = gameData.progressionStrWoValue;
-  const correctResult = String(gameData.correctAnswer);
+  const correctAnswer = String(gameData.correctAnswer);
 
   return {
     question,
-    correctResult,
+    correctAnswer,
   };
 };
 
-export default () => gameEngine(progressionGame, description);
+export default () => gameEngine(playRound, description);

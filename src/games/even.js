@@ -6,16 +6,16 @@ const minimalNumber = 1;
 const maximumNumber = 100;
 const isEven = (number) => number % 2 === 0;
 
-const prepareCorrectResult = (number) => (isEven(number) ? 'yes' : 'no');
+const getAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
-const evenGame = () => {
+const playRound = () => {
   const question = getRandomInt(minimalNumber, maximumNumber);
-  const correctResult = prepareCorrectResult(question);
+  const correctAnswer = getAnswer(question);
 
   return {
     question,
-    correctResult,
+    correctAnswer,
   };
 };
 
-export default () => gameEngine(evenGame, description);
+export default () => gameEngine(playRound, description);

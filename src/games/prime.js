@@ -27,16 +27,16 @@ const isPrime = (number) => {
   return true;
 };
 
-const prepareCorrectResult = (number) => (isPrime(number) ? 'yes' : 'no');
+const getAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-const primeGame = () => {
+const playRound = () => {
   const question = getRandomInt(minimalNumber, maximumNumber);
-  const correctResult = prepareCorrectResult(question);
+  const correctAnswer = getAnswer(question);
 
   return {
     question,
-    correctResult,
+    correctAnswer,
   };
 };
 
-export default () => gameEngine(primeGame, description);
+export default () => gameEngine(playRound, description);

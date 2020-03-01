@@ -22,16 +22,16 @@ const getGcd = (number1, number2) => {
   return 1;
 };
 
-const gcdGame = () => {
+const playRound = () => {
   const currentInt1 = getRandomInt(minimalNumber, maximumNumber);
   const currentInt2 = getRandomInt(minimalNumber, maximumNumber);
   const question = `${currentInt1} ${currentInt2}`;
-  const correctResult = String(getGcd(currentInt1, currentInt2));
+  const correctAnswer = String(getGcd(currentInt1, currentInt2));
 
   return {
     question,
-    correctResult,
+    correctAnswer,
   };
 };
 
-export default () => gameEngine(gcdGame, description);
+export default () => gameEngine(playRound, description);
