@@ -2,8 +2,6 @@ import readlineSync from 'readline-sync';
 
 const durationOfGame = 3;
 
-const answerComparator = (answer, correctAnswer) => answer === correctAnswer;
-
 const askQuestion = (question) => readlineSync
   .question(`Question: ${question} \nYour answer: `);
 
@@ -22,16 +20,17 @@ const gameEngine = (game, description) => {
     const roundData = game();
     const answer = askQuestion(getQuestion(roundData));
     const correctAnswer = getCorrectAnswer(roundData);
-    const isAnswerCorrect = answerComparator(answer, correctAnswer);
+    const isAnswerCorrect = () => answer === correctAnswer;
 
-    if (isAnswerCorrect) {
+    if (isAnswerCorrect(answer, correctAnswer)) {
       console.log('Correct');
 
       if (i === durationOfGame) {
         console.log(`Congratulations, ${userName}!`);
       }
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
   }
