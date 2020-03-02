@@ -6,28 +6,26 @@ const minimalNumber = 1;
 const maximumNumber = 10;
 const progressionLength = 10;
 
-const getProgressionNumbers = (length, firstValue, step) => {
-  const progressionNumbers = [];
-  let currentNumber = firstValue;
-
-  for (let i = 0; i < length; i += 1) {
-    progressionNumbers.push(currentNumber);
-    currentNumber += step;
-  }
-
-  return progressionNumbers;
-};
-
-const getProgressionNumbersWoValue = (quantityOfNumbers) => {
+const getProgression = (length) => {
+  const progression = [];
   const firstValue = getRandomInt(minimalNumber, maximumNumber);
   const step = getRandomInt(minimalNumber, maximumNumber);
-  const progressionNumbers = getProgressionNumbers(quantityOfNumbers, firstValue, step);
+
+  for (let i = 0; i < length; i += 1) {
+    progression.push(firstValue + step * i);
+  }
+
+  return progression;
+};
+
+const getProgressionWithoutValue = (quantityOfNumbers) => {
+  const progression = getProgression(quantityOfNumbers);
   const randomInt = getRandomInt(minimalNumber, maximumNumber - 1);
-  const correctAnswer = progressionNumbers[randomInt];
+  const correctAnswer = progression[randomInt];
 
-  progressionNumbers[randomInt] = '..';
+  progression[randomInt] = '..';
 
-  const progressionStrWoValue = progressionNumbers.join(' ');
+  const progressionStrWoValue = progression.join(' ');
 
   return {
     progressionStrWoValue,
@@ -36,7 +34,7 @@ const getProgressionNumbersWoValue = (quantityOfNumbers) => {
 };
 
 const playRound = () => {
-  const gameData = getProgressionNumbersWoValue(progressionLength);
+  const gameData = getProgressionWithoutValue(progressionLength);
   const question = gameData.progressionStrWoValue;
   const correctAnswer = String(gameData.correctAnswer);
 
