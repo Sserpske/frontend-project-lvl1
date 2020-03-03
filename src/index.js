@@ -24,16 +24,14 @@ const gameEngine = (game, description) => {
 
     if (isAnswerCorrect(answer, correctAnswer)) {
       console.log('Correct');
-
-      if (i === durationOfGame) {
-        console.log(`Congratulations, ${userName}!`);
-      }
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
   }
+
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default gameEngine;
