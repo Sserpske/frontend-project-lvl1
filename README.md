@@ -33,5 +33,5 @@ brain-calc
 Пример уставновки и процесса игры в Brain-progression
 [![asciicast](https://asciinema.org/a/r2xFTfmNdbDiBGyOsknpizH3n.svg)](https://asciinema.org/a/r2xFTfmNdbDiBGyOsknpizH3n)
 
-Пример уставновки и процесса игры в Brain-pride
+Пример уставновки и процесса игры в Brain-prime
 [![asciicast](https://asciinema.org/a/Lg5EjGT8jVWRoK1X7Lg5veI33.svg)](https://asciinema.org/a/Lg5EjGT8jVWRoK1X7Lg5veI33)

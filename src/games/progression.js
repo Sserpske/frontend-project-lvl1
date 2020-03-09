@@ -6,10 +6,8 @@ const minimalNumber = 1;
 const maximumNumber = 10;
 const progressionLength = 10;
 
-const getProgression = (length) => {
+const getProgression = (length, firstValue, step) => {
   const progression = [];
-  const firstValue = getRandomInt(minimalNumber, maximumNumber);
-  const step = getRandomInt(minimalNumber, maximumNumber);
 
   for (let i = 0; i < length; i += 1) {
     progression.push(firstValue + step * i);
@@ -19,7 +17,9 @@ const getProgression = (length) => {
 };
 
 const getProgressionWithoutValue = (quantityOfNumbers) => {
-  const progression = getProgression(quantityOfNumbers);
+  const firstValue = getRandomInt(minimalNumber, maximumNumber);
+  const step = getRandomInt(minimalNumber, maximumNumber);
+  const progression = getProgression(quantityOfNumbers, firstValue, step);
   const randomInt = getRandomInt(minimalNumber, maximumNumber - 1);
   const correctAnswer = progression[randomInt];
 
