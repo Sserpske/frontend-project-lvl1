@@ -33,7 +33,7 @@ const getProgressionWithoutValue = (quantityOfNumbers) => {
   };
 };
 
-const playRound = () => {
+const generateRoundData = () => {
   const gameData = getProgressionWithoutValue(progressionLength);
   const question = gameData.progressionStrWoValue;
   const correctAnswer = String(gameData.correctAnswer);
@@ -44,4 +44,4 @@ const playRound = () => {
   };
 };
 
-export default () => gameEngine(playRound, description);
+export default () => gameEngine(generateRoundData, description);

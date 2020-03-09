@@ -29,7 +29,7 @@ const isPrime = (number) => {
 
 const getAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-const playRound = () => {
+const generateRoundData = () => {
   const question = getRandomInt(minimalNumber, maximumNumber);
   const correctAnswer = getAnswer(question);
 
@@ -39,4 +39,4 @@ const playRound = () => {
   };
 };
 
-export default () => gameEngine(playRound, description);
+export default () => gameEngine(generateRoundData, description);

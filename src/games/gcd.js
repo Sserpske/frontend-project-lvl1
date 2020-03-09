@@ -22,7 +22,7 @@ const getGcd = (number1, number2) => {
   return 1;
 };
 
-const playRound = () => {
+const generateRoundData = () => {
   const currentInt1 = getRandomInt(minimalNumber, maximumNumber);
   const currentInt2 = getRandomInt(minimalNumber, maximumNumber);
   const question = `${currentInt1} ${currentInt2}`;
@@ -34,4 +34,4 @@ const playRound = () => {
   };
 };
 
-export default () => gameEngine(playRound, description);
+export default () => gameEngine(generateRoundData, description);

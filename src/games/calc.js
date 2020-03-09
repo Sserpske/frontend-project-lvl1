@@ -6,7 +6,7 @@ const minimalNumber = 1;
 const maximumNumber = 50;
 const operators = ['+', '-', '*'];
 
-const calculateOperation = (operator, firstNumber, secondNumber) => {
+const calculate = (operator, firstNumber, secondNumber) => {
   switch (operator) {
     case '+':
       return firstNumber + secondNumber;
@@ -19,12 +19,12 @@ const calculateOperation = (operator, firstNumber, secondNumber) => {
   }
 };
 
-const playRound = () => {
+const generateRoundData = () => {
   const randomInt1 = getRandomInt(minimalNumber, maximumNumber);
   const randomInt2 = getRandomInt(minimalNumber, maximumNumber);
   const currentOperator = operators[getRandomInt(0, operators.length - 1)];
   const question = `${randomInt1} ${currentOperator} ${randomInt2}`;
-  const correctAnswer = String(calculateOperation(currentOperator, randomInt1, randomInt2));
+  const correctAnswer = String(calculate(currentOperator, randomInt1, randomInt2));
 
   return {
     question,
@@ -32,4 +32,4 @@ const playRound = () => {
   };
 };
 
-export default () => gameEngine(playRound, description);
+export default () => gameEngine(generateRoundData, description);

@@ -8,7 +8,7 @@ const isEven = (number) => number % 2 === 0;
 
 const getAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
-const playRound = () => {
+const generateRoundData = () => {
   const question = getRandomInt(minimalNumber, maximumNumber);
   const correctAnswer = getAnswer(question);
 
@@ -18,4 +18,4 @@ const playRound = () => {
   };
 };
 
-export default () => gameEngine(playRound, description);
+export default () => gameEngine(generateRoundData, description);
