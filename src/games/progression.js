@@ -17,9 +17,10 @@ const getProgression = (length, firstValue, step) => {
 };
 
 const getQuestion = (progression, hiddenValueIndex) => {
-  progression[hiddenValueIndex] = '..';
+  const progressionWithoutValue = progression;
+  progressionWithoutValue[hiddenValueIndex] = '..';
 
-  return progression.join(' ');
+  return progressionWithoutValue.join(' ');
 };
 
 const generateRoundData = () => {
