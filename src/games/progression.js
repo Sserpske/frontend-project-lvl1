@@ -16,27 +16,19 @@ const getProgression = (length, firstValue, step) => {
   return progression;
 };
 
-const getProgressionWithoutValue = (quantityOfNumbers) => {
-  const firstValue = getRandomInt(minimalNumber, maximumNumber);
-  const step = getRandomInt(minimalNumber, maximumNumber);
-  const progression = getProgression(quantityOfNumbers, firstValue, step);
-  const randomInt = getRandomInt(minimalNumber, maximumNumber - 1);
-  const correctAnswer = progression[randomInt];
+const getQuestion = (progression, hiddenValueIndex) => {
+  progression[hiddenValueIndex] = '..';
 
-  progression[randomInt] = '..';
-
-  const progressionStrWoValue = progression.join(' ');
-
-  return {
-    progressionStrWoValue,
-    correctAnswer,
-  };
+  return progression.join(' ');
 };
 
 const generateRoundData = () => {
-  const gameData = getProgressionWithoutValue(progressionLength);
-  const question = gameData.progressionStrWoValue;
-  const correctAnswer = String(gameData.correctAnswer);
+  const firstValue = getRandomInt(minimalNumber, maximumNumber);
+  const step = getRandomInt(minimalNumber, maximumNumber);
+  const progression = getProgression(progressionLength, firstValue, step);
+  const hiddenValueIndex = getRandomInt(minimalNumber, progressionLength - 1);
+  const correctAnswer = String(progression[hiddenValueIndex]);
+  const question = getQuestion(progression, hiddenValueIndex);
 
   return {
     question,
