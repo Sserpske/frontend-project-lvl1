@@ -1,4 +1,4 @@
-# Учебный проект Brain Games
+# Brain Games
 [![Maintainability](https://api.codeclimate.com/v1/badges/6df75cb3dd2dfe8cd701/maintainability)](https://codeclimate.com/github/Sserpske/frontend-project-lvl1/maintainability)
 ![Linter](https://github.com/Sserpske/frontend-project-lvl1/workflows/Linter/badge.svg)
 
